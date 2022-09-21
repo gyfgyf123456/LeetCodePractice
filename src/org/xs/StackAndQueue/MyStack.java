@@ -8,39 +8,33 @@ package org.xs.StackAndQueue;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class MyStack
-{
+class MyStack {
 
-    public MyStack()
-    {
+    Queue queue1;
+    Queue queue2;
+
+    public MyStack() {
         queue1 = new LinkedList();
         queue2 = new LinkedList();
     }
 
-    public void push(int x)
-    {
+    public void push(int x) {
         queue2.offer(Integer.valueOf(x));
-        for(; !queue1.isEmpty(); queue2.offer(queue1.poll()));
+        for (; !queue1.isEmpty(); queue2.offer(queue1.poll())) ;
         Queue temp = queue1;
         queue1 = queue2;
         queue2 = temp;
     }
 
-    public int pop()
-    {
-        return ((Integer)queue1.poll()).intValue();
+    public int pop() {
+        return ((Integer) queue1.poll()).intValue();
     }
 
-    public int top()
-    {
-        return ((Integer)queue1.peek()).intValue();
+    public int top() {
+        return ((Integer) queue1.peek()).intValue();
     }
 
-    public boolean empty()
-    {
+    public boolean empty() {
         return queue1.isEmpty();
     }
-
-    Queue queue1;
-    Queue queue2;
 }

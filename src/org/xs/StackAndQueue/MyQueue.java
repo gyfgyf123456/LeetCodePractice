@@ -7,43 +7,36 @@ package org.xs.StackAndQueue;
 
 import java.util.Stack;
 
-class MyQueue
-{
+class MyQueue {
 
-    public MyQueue()
-    {
+    Stack inStack;
+    Stack outStack;
+
+    public MyQueue() {
         inStack = new Stack();
         outStack = new Stack();
     }
 
-    public void push(int x)
-    {
+    public void push(int x) {
         inStack.push(Integer.valueOf(x));
     }
 
-    public int pop()
-    {
+    public int pop() {
         dumpStack();
-        return ((Integer)outStack.pop()).intValue();
+        return ((Integer) outStack.pop()).intValue();
     }
 
-    public int peek()
-    {
+    public int peek() {
         dumpStack();
-        return ((Integer)outStack.peek()).intValue();
+        return ((Integer) outStack.peek()).intValue();
     }
 
-    public boolean empty()
-    {
+    public boolean empty() {
         return inStack.isEmpty() && outStack.isEmpty();
     }
 
-    public void dumpStack()
-    {
-        if(outStack.isEmpty())
-            for(; !inStack.isEmpty(); outStack.push(inStack.pop()));
+    public void dumpStack() {
+        if (outStack.isEmpty())
+            for (; !inStack.isEmpty(); outStack.push(inStack.pop())) ;
     }
-
-    Stack inStack;
-    Stack outStack;
 }

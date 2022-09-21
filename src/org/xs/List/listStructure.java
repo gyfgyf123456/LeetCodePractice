@@ -9,15 +9,12 @@ package org.xs.List;
 // Referenced classes of package LeetCode.list:
 //            MyLinkedList
 
-public class listStructure
-{
+public class listStructure {
 
-    public listStructure()
-    {
+    public listStructure() {
     }
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         MyLinkedList linkedList = new MyLinkedList();
         linkedList.addAtHead(4);
         linkedList.addAtHead(6);

@@ -6,23 +6,19 @@
 package org.xs.String;
 
 
-public class replaceSpace
-{
+public class replaceSpace {
 
-    public replaceSpace()
-    {
+    public replaceSpace() {
     }
 
-    public String replaceSpace(String s)
-    {
+    public String replaceSpace(String s) {
         char chars[] = s.toCharArray();
         StringBuffer sb = new StringBuffer();
         char ac[] = chars;
         int i = ac.length;
-        for(int j = 0; j < i; j++)
-        {
+        for (int j = 0; j < i; j++) {
             char c = ac[j];
-            if(" ".equals(String.valueOf(c)))
+            if (" ".equals(String.valueOf(c)))
                 sb.append("%20");
             else
                 sb.append(c);

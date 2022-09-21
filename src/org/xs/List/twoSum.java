@@ -5,30 +5,23 @@
 
 package org.xs.List;
 
-import java.io.PrintStream;
-
 // Referenced classes of package LeetCode.list:
 //            ListNode
 
-public class twoSum
-{
+public class twoSum {
 
-    public twoSum()
-    {
+    public twoSum() {
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2)
-    {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int num1 = 0;
         int num2 = 0;
-        for(; l1 != null; l1 = l1.next)
-        {
+        for (; l1 != null; l1 = l1.next) {
             num1 *= 10;
             num1 += l1.val;
         }
 
-        for(; l2 != null; l2 = l2.next)
-        {
+        for (; l2 != null; l2 = l2.next) {
             num2 *= 10;
             num2 += l2.val;
         }

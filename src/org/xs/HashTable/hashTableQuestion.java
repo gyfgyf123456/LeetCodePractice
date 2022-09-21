@@ -5,46 +5,38 @@
 
 package org.xs.HashTable;
 
-import java.io.PrintStream;
+public class hashTableQuestion {
 
-public class hashTableQuestion
-{
-
-    public hashTableQuestion()
-    {
+    public hashTableQuestion() {
     }
 
-    public boolean isAnagram(String s, String t)
-    {
-        if(s.length() != t.length())
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length())
             return false;
         int sTable[] = new int[26];
         int tTable[] = new int[26];
         char ac[] = s.toCharArray();
         int j = ac.length;
-        for(int k = 0; k < j; k++)
-        {
+        for (int k = 0; k < j; k++) {
             Character c = Character.valueOf(ac[k]);
             sTable[c.charValue() - 97]++;
         }
 
         ac = t.toCharArray();
         j = ac.length;
-        for(int l = 0; l < j; l++)
-        {
+        for (int l = 0; l < j; l++) {
             Character c = Character.valueOf(ac[l]);
             tTable[c.charValue() - 97]++;
         }
 
-        for(int i = 0; i < sTable.length; i++)
-            if(sTable[i] != tTable[i])
+        for (int i = 0; i < sTable.length; i++)
+            if (sTable[i] != tTable[i])
                 return false;
 
         return true;
     }
 
-    public void isAnagramtest()
-    {
+    public void isAnagramtest() {
         System.out.println(isAnagram("aacc", "ccac"));
     }
 }

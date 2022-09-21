@@ -7,36 +7,28 @@ package org.xs.BinaryTree;
 
 import java.util.Arrays;
 
-// Referenced classes of package LeetCode.binaryTree:
-//            TreeNode
+public class ConstructBinaryTree {
 
-public class ConstructBinaryTree
-{
-
-    public ConstructBinaryTree()
-    {
+    public ConstructBinaryTree() {
     }
 
-    public TreeNode buildTree(int inorder[], int postorder[])
-    {
-        if(inorder.length == 0)
+    public TreeNode buildTree(int inorder[], int postorder[]) {
+        if (inorder.length == 0)
             return null;
         TreeNode root = new TreeNode(postorder[postorder.length - 1]);
-        if(postorder.length == 1)
+        if (postorder.length == 1)
             return root;
         int cutPorint = 0;
         int i = 0;
-        do
-        {
-            if(i >= inorder.length)
+        do {
+            if (i >= inorder.length)
                 break;
-            if(inorder[i] == root.val)
-            {
+            if (inorder[i] == root.val) {
                 cutPorint = i;
                 break;
             }
             i++;
-        } while(true);
+        } while (true);
         int leftInOrder[] = Arrays.copyOfRange(inorder, 0, cutPorint);
         int rightInOrder[] = Arrays.copyOfRange(inorder, cutPorint + 1, inorder.length);
         int leftPostOrder[] = Arrays.copyOfRange(postorder, 0, leftInOrder.length);
@@ -46,22 +38,18 @@ public class ConstructBinaryTree
         return root;
     }
 
-    public void buildTreeTest()
-    {
-        buildTree(new int[] {
-            9, 3, 15, 20, 7
-        }, new int[] {
-            9, 15, 7, 20, 3
+    public void buildTreeTest() {
+        buildTree(new int[]{
+                9, 3, 15, 20, 7
+        }, new int[]{
+                9, 15, 7, 20, 3
         });
     }
 
-    public TreeNode constructMaximumBinaryTree(int nums[])
-    {
-        if(nums.length == 0)
-        {
+    public TreeNode constructMaximumBinaryTree(int nums[]) {
+        if (nums.length == 0) {
             return null;
-        } else
-        {
+        } else {
             int cutPoint = indexOfMaxValue(nums);
             TreeNode root = new TreeNode(nums[cutPoint]);
             int leftTree[] = Arrays.copyOfRange(nums, 0, cutPoint);
@@ -72,13 +60,11 @@ public class ConstructBinaryTree
         }
     }
 
-    private int indexOfMaxValue(int nums[])
-    {
+    private int indexOfMaxValue(int nums[]) {
         int maxValue = 0x80000000;
         int index = 0;
-        for(int i = 0; i < nums.length; i++)
-            if(nums[i] > maxValue)
-            {
+        for (int i = 0; i < nums.length; i++)
+            if (nums[i] > maxValue) {
                 maxValue = nums[i];
                 index = i;
             }
@@ -86,24 +72,20 @@ public class ConstructBinaryTree
         return index;
     }
 
-    public void constructMaximumBinaryTreeTest()
-    {
-        constructMaximumBinaryTree(new int[] {
-            3, 2, 1, 6, 0, 5
+    public void constructMaximumBinaryTreeTest() {
+        constructMaximumBinaryTree(new int[]{
+                3, 2, 1, 6, 0, 5
         });
     }
 
-    public TreeNode mergeTrees(TreeNode root1, TreeNode root2)
-    {
-        if(root1 == null && root2 != null)
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 != null)
             return root2;
-        if(root2 == null && root1 != null)
+        if (root2 == null && root1 != null)
             return root1;
-        if(root1 == null && root2 == null)
-        {
+        if (root1 == null && root2 == null) {
             return null;
-        } else
-        {
+        } else {
             TreeNode root = new TreeNode(root1.val + root2.val);
             root.left = mergeTrees(root1.left, root2.left);
             root.right = mergeTrees(root1.right, root2.right);

@@ -5,31 +5,22 @@
 
 package org.xs.BinaryTree;
 
-// Referenced classes of package LeetCode.binaryTree:
-//            TreeNode
+public class CompleteBinaryTree {
 
-public class CompleteBinaryTree
-{
-
-    public CompleteBinaryTree()
-    {
+    public CompleteBinaryTree() {
     }
 
-    public int countNodes(TreeNode root)
-    {
-        if(root == null)
-        {
+    public int countNodes(TreeNode root) {
+        if (root == null) {
             return 0;
-        } else
-        {
+        } else {
             int leftNum = countNodes(root.left);
             int rightNum = countNodes(root.right);
             return leftNum + rightNum + 1;
         }
     }
 
-    public void test()
-    {
+    public void test() {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(3);
         root.right = new TreeNode(4);
