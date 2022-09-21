@@ -1,8 +1,3 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   PathOfBinaryTree.java
-
 package org.xs.BinaryTree;
 
 import org.junit.Test;
@@ -11,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-
-// Referenced classes of package LeetCode.binaryTree:
-//            TreeNode
 
 public class PathOfBinaryTree {
 
