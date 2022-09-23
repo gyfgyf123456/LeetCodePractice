@@ -139,18 +139,34 @@ public class Combine {
         return result;
     }
 
+    // 直接传递给下一层循环新的数组
     private void backTracing_combinationSum(int[] candidates, int target, int sum) {
-        if (sum > target) {
-            return;
-        }
         if (sum == target) {
             result.add(new ArrayList<>(path));
         }
-        for (int i = 0; i < candidates.length; i++) {
+        // sum + candidates[i] < target 剪枝
+        for (int i = 0; i < candidates.length && sum + candidates[i] < target; i++) {
             int[] nextCandidates = Arrays.copyOfRange(candidates, i, candidates.length);
             path.add(candidates[i]);
             backTracing_combinationSum(nextCandidates, target, sum + candidates[i]);
             path.remove(path.size() - 1);
         }
     }
+
+    // 利用startIndex控制循环
+    private void backTracing_combinationSum(int[] candidates, int target, int sum, int stratIndex) {
+        if (sum == target) {
+            result.add(new ArrayList<>(path));
+        }
+        for (int i = stratIndex; i < candidates.length && sum + candidates[i] < target; i++) {
+            path.add(candidates[i]);
+            backTracing_combinationSum(candidates, target, sum + candidates[i], i);
+            path.remove(path.size() - 1);
+        }
+    }
+
+    /*40. 组合总和 II
+    给定一个候选人编号的集合 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+    candidates 中的每个数字在每个组合中只能使用 一次 。
+    注意：解集不能包含重复的组合。 */
 }
